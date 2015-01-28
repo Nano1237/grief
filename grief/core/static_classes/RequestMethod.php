@@ -8,8 +8,22 @@
  */
 class RequestMethod {
 
+    /**
+     * Here is the Requestname stored all in lower case letters
+     * @var String
+     */
     private static $methodLower;
+
+    /**
+     * Here is the Requestname stored all in upper case letters
+     * @var String
+     */
     private static $methodUpper;
+
+    /**
+     * Here are all possible methods stored that are allowed by the server (defined in the config.ini)
+     * @var array 
+     */
     private static $possibleMethods;
 
     /**
