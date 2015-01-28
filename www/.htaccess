@@ -1,0 +1,8 @@
+#This .htacces will just redirect every call to the index.php.
+#If the user redirects to a folder inside of this path, it shoud be ignored
+#The path parsing is done by php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+RewriteRule ^(.+)$ index.php [L]
