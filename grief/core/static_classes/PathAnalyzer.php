@@ -8,6 +8,10 @@
  */
 class PathAnalyzer {
 
+    /**
+     * The cached and formatted path
+     * @var array
+     */
     static private $path;
 
     /**

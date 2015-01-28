@@ -8,25 +8,39 @@
  */
 class Output {
 
-    public static function byValue($value, $data) {
-        $value = strlen($value) > 0 ? $value : 'json';
-        if (method_exists('Output', $value)) {
-            call_user_func_array('Output::' . $value, array($data));
+    /**
+     * Returns the Data by the value passed in the first property (if the method exits)
+     * @param String $returnType The Return type (like json or xml)
+     * @param Variable $returnData The data that shoud be formatted to another type
+     */
+    public static function byValue($returnType, $returnData) {
+        $returnType = strlen($returnType) > 0 ? $returnType : 'json';
+        if (method_exists('Output', $returnType)) {
+            call_user_func_array('Output::' . $returnType, array($returnData));
         }
         exit;
     }
 
-    public static function xml($data) {
+    /**
+     * Shoud return an XML File
+     * @param Value $returnData The Data that shoud be returned
+     */
+    public static function xml($returnData) {
         echo 'XML';
         exit;
+        var_dump($returnData);
     }
 
-    public static function json($data) {
-        if (!is_array($data)) {
-            $data = array($data);
+    /**
+     * Returns an json String
+     * @param Variable $returnData
+     */
+    public static function json($returnData) {
+        if (!is_array($returnData)) {
+            $returnData = array($returnData);
         }
-        //json header set
-        exit(json_encode($data));
+        //set json header? or useless data?
+        exit(json_encode($returnData));
     }
 
 }
