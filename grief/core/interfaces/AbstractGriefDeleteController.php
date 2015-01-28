@@ -1,12 +1,13 @@
 <?php
 
 /**
- * Description
+ * This Controller shoud be used by the delete.php controllers.
+ * It provides just the things you need to delete data.
  * @author Tim Rücker <tim.ruecker@ymail.com>
  * @copyright (c) 2015
  * 
  */
-abstract class AbstractGriefPatchController {
+abstract class AbstractGriefDeleteController {
 
     /**
      *
