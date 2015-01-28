@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Description
+ * Defines usefull and maybe often used constants
  * @author Tim Rücker <tim.ruecker@ymail.com>
  * @copyright (c) 2015
  * 

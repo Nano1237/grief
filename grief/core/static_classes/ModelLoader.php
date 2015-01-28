@@ -9,8 +9,18 @@
  */
 class ModelLoader {
 
+    /**
+     * Here are the initialized models cached
+     * @var Array
+     */
     private static $modelCache = array();
 
+    /**
+     * 
+     * Loads a new model and initializes it (if the model and the file exists)
+     * @param String $modelName The name of the model
+     * @return \modelName The initialized model
+     */
     private static function loadNewModel($modelName) {
         $glob = ConfigLoader::getGlobalConfig();
         $filename = CURRENT_ZONE_PATH . '/' . $glob['model_prefix'] . $modelName . '.php';
@@ -25,6 +35,12 @@ class ModelLoader {
         }
     }
 
+    /**
+     * 
+     * Returns a cached Model (or loads a nwe obne if it is not initialized)
+     * @param String $modelName The name of the requestet model
+     * @return Object
+     */
     public static function getModel($modelName) {
         if (!isset(self::$modelCache[$modelName])) {
             self::$modelCache[$modelName] = self::loadNewModel($modelName);
