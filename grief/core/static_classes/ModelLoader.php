@@ -26,10 +26,9 @@ class ModelLoader {
     }
 
     public static function getModel($modelName) {
-        if (isset(self::$modelCache[$modelName])) {
-            return self::$modelCache[$modelName];
+        if (!isset(self::$modelCache[$modelName])) {
+            self::$modelCache[$modelName] = self::loadNewModel($modelName);
         }
-        self::$modelCache[$modelName] = self::loadNewModel($modelName);
         return self::$modelCache[$modelName];
     }
 

@@ -57,9 +57,8 @@ class PathAnalyzer {
      */
     static public function getPathParts() {
         if (isset(self::$path)) {
-            return self::$path;
+            self::$path = self::analyzeRequestPath();
         }
-        self::$path = self::analyzeRequestPath();
         return self::$path;
     }
 
