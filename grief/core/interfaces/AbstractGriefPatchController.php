@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Description
+ * This Controller shoud be used by the path.php controllers.
+ * It provides just the things you need to patch data.
  * @author Tim Rücker <tim.ruecker@ymail.com>
  * @copyright (c) 2015
  * 

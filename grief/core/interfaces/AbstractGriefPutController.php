@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Description
+ * This Controller shoud be used by the put.php controllers.
+ * It provides just the things you need to update data.
  * @author Tim Rücker <tim.ruecker@ymail.com>
  * @copyright (c) 2015
  * 
