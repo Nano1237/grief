@@ -22,6 +22,20 @@ class Output {
     }
 
     /**
+     * 
+     * Returns the Data by a certain header data (like the Accept Header)
+     * @param String $header
+     * @param variable $data
+     * @return undefined
+     */
+    public static function byHeader($header, $data) {
+        if (strpos($header, 'application/json') !== false) {
+            return self::json($data);
+        }
+        return self::json($data);
+    }
+
+    /**
      * Shoud return an XML File
      * @param Value $returnData The Data that shoud be returned
      */
@@ -39,7 +53,6 @@ class Output {
         if (!is_array($returnData)) {
             $returnData = array($returnData);
         }
-        //set json header? or useless data?
         exit(json_encode($returnData));
     }
 

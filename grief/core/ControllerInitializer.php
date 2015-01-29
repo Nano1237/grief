@@ -20,7 +20,7 @@ class ControllerInitializer {
             } else {
                 $return = $controller->mainRoute($params);
             }
-            Output::byValue($_GET['return_type'], $return);
+            Output::byHeader(RequestAnalyzer::getHeader('Accept'), $return);
         }
     }
 
@@ -30,14 +30,14 @@ class ControllerInitializer {
      */
     private function getCurrentController() {
         //Check for globaly wrong requests
-        $allow = RequestMethod::requestAllowed();
+        $allow = RequestAnalyzer::requestAllowed();
         $gc = ConfigLoader::getGlobalConfig();
         if (!$allow && !$gc['ressource_options_default']) {
             exit('Request permittet');
         } elseif (!$allow) {
             $lowerMethod = 'default';
         } else {
-            $lowerMethod = RequestMethod::getMethodLower();
+            $lowerMethod = RequestAnalyzer::getMethodLower();
         }
         $controllerFile = CURRENT_ZONE_PATH . '/' . $lowerMethod . '.php';
         if (file_exists($controllerFile)) {
