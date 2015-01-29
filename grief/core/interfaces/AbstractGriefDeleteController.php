@@ -15,5 +15,4 @@ abstract class AbstractGriefDeleteController extends GriefControllerParent {
      * Another exampe is the call of "localhost/myWWW/demo_zone/something" if the something method is not set
      */
     abstract public function mainRoute($routParams);
-
 }
