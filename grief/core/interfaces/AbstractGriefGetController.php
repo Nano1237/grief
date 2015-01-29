@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @todo: just allow SELECT for mysql
  * The parent of all GET-Controllers, each Controller must have a mainRoute Method as custom error correction
  * @author Tim Rücker <tim.ruecker@ymail.com>
  * @copyright (c) 2015
