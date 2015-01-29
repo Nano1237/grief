@@ -14,11 +14,11 @@ $ git clone https://github.com/Nano1237/grief.git
 - create a new `zone` in the [zone foder](https://github.com/Nano1237/grief/tree/master/grief/zones)
 - create for each allowed request method for you zone a controller [*`(get as example)`*](https://github.com/Nano1237/grief/blob/master/grief/zones/demo_zone/get.php)
 
-And now you'r done!
+And now you're done!
 
 ## How can I use it? *extendet version*
 
-*After you'r cloned the Repository*
+*After you cloned the Repository*
 ### How to config the config.ini
 
 Everything you need to now is documented in the [config.ini](https://github.com/Nano1237/grief/blob/master/grief/config.ini).

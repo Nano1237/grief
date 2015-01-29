@@ -4,6 +4,7 @@ Each zone can only have one controlle for each possible request method.
 Everything else in this folder (each php file with a class inside) could be (for example) a model.
 
 
+defaultcontroller set if unallowed request;
 
 
 I recomend to use the prefix '~model_' for all models inside of this folder (that you can find them easyier).
