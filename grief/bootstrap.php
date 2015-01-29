@@ -18,8 +18,8 @@ require_once(CORE_PATH . '/constants.php');
 
 require_once(CORE_PATH . '/static_classes/Output.php');
 require_once(CORE_PATH . '/static_classes/ModelLoader.php');
-require_once(CORE_PATH . '/static_classes/RequestMethod.php');
-require_once(CORE_PATH . '/static_classes/RequestInput.php');
+require_once(CORE_PATH . '/static_classes/RequestAnalyzer.php');
+//require_once(CORE_PATH . '/static_classes/RequestInput.php');
 
 
 require_once(CORE_PATH . '/GriefControllerParent.php');
@@ -28,7 +28,7 @@ require_once(CORE_PATH . '/GriefControllerParent.php');
 require_once(CORE_PATH . '/interfaces/AbstractGriefModel.php');
 
 
-if (RequestMethod::getMethodLower() === 'options') {
+if (RequestAnalyzer::getMethodLower() === 'options') {
     exit('options');
 }
 if (!CURRENT_ZONE_PATH) {

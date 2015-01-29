@@ -1,12 +1,12 @@
 <?php
 
-/**
- * Easy to use Requestmethod analysing
- * @author Tim Rücker <tim.ruecker@ymail.com>
- * @copyright (c) 2015
- * 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-class RequestMethod {
+
+class RequestAnalyzer {
 
     /**
      * Here is the Requestname stored all in lower case letters
@@ -25,6 +25,64 @@ class RequestMethod {
      * @var array 
      */
     private static $possibleMethods;
+
+    /**
+     * Stores the decoded Input
+     * @var array
+     */
+    private static $input;
+
+    /**
+     *
+     * Contains the Requestheader as Array
+     * @var array
+     */
+    private static $header;
+
+    /**
+     * 
+     * Returns all Header data, or if needed just a certain Header by key
+     * @param String|Boolean $certainHeader The key (headername)
+     * @return String
+     */
+    public static function getHeader($certainHeader = false) {
+        if (!isset(self::$header)) {
+            self::setHeader();
+        }
+        if ($certainHeader) {
+            return self::$header[$certainHeader];
+        }
+        return self::$header;
+    }
+
+    private static function setHeader() {
+        self::$header = getallheaders();
+    }
+
+    /**
+     * Returns the input data (getter for the self::$input property)
+     * @return array
+     */
+    public static function getInput() {
+        if (!isset(self::$input)) {
+            self::setInput();
+        }
+        return self::$input;
+    }
+
+    /**
+     * Gets the json send by AngularJS and decodes it.
+     * Then the decoded Input is stored in the input property
+     * @return type
+     */
+    private static function setInput() {
+        $postdata = file_get_contents("php://input");
+        if (trim(strlen($postdata)) === 0) {
+            self::$input = array();
+            return;
+        }
+        self::$input = json_decode($postdata, true);
+    }
 
     /**
      * Sets all possible Attributes of this object
