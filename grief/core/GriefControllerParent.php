@@ -26,9 +26,13 @@ class GriefControllerParent {
      *
      * The user sets routes.
      * The bootstrapper looks for the routes
+     * @todo: Error fixing if no route matches (call default method)
      */
     protected function setRoutes($routeArray) {
         $this->routes = PathAnalyzer::analyzePath($routeArray);
+        if (count($this->routes) === 0) {
+            $this->routes = array('mainRoute',array());//set the default method without params
+        }
     }
 
     /**
