@@ -10,28 +10,42 @@ class DeleteController extends AbstractGriefDeleteController {
 
     public function __construct() {
         $this->setRoutes(array(
-            ':variableName/fixName/AnotherFix' => 'someMethod',
+            'user/:userId' => 'deleteCertainUser',
             'fixName/:variableName' => 'anotherMethod'
         ));
     }
 
     /**
-     * mainRoute has to be defined (its abstract)
-     * @param Array $routParams
+     * mainRoute has to be defined (its abstract).
+     * It is called if no route matches.
+     * @param Array $routeParams
      */
-    public function mainRoute($routParams) {
+    public function mainRoute($routeParams) {
         echo 'mainRoute';
-        print_r($routParams);
+        print_r($routeParams);
+        exit;
     }
 
-    public function someMethod($routParams) {
-        echo 'someMethod';
-        print_r($routParams);
+    /**
+     * 
+     * A Demo method to demonstrate the Delete Controller Method
+     * @param type $routParams
+     * @return type
+     */
+    public function deleteCertainUser($routParams) {
+        return array(
+            'success' => true,
+            'message' => 'User ' . $routParams['userId'] . ' deleted'
+        );
     }
 
-    public function anotherMethod($routParams) {
+    /**
+     * Just another Method to demonstrate, how you can add multiple routes in the contrcutor
+     * @param Array $routeParams
+     */
+    public function anotherMethod($routeParams) {
         echo 'anotherMethod';
-        print_r($routParams);
+        print_r($routeParams);
     }
 
 }
