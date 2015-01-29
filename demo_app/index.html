@@ -10,9 +10,10 @@
     </head>
     <body ng-controller="AppController">
         <div>Demo REST-Call with the ngResource Service</div>
+        <p>This is just one method how you can interact with the api!</p>
         <h3>Log:</h3>
         <ul>
-            <li ng-repeat="entry in log">{{entry}}</li>
+            <li ng-repeat="entry in log track by $index">{{entry}}</li>
         </ul>
     </body>
 </html>
