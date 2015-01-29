@@ -10,9 +10,17 @@ class GetController extends AbstractGriefGetController {
 
     public function __construct() {
         $this->setRoutes(array(
-            ':variableName/fixName/AnotherFix' => 'someMethod',
+            'user/:userId' => 'GetCertainUser',
             'fixName/:variableName' => 'anotherMethod'
         ));
+    }
+    
+    
+    public function GetCertainUser($param){
+        return array(
+            'name'=>'John Doe',
+            'id'=>$param['userId']
+        );
     }
 
     /**
@@ -20,18 +28,22 @@ class GetController extends AbstractGriefGetController {
      * @param Array $routParams
      */
     public function mainRoute($routParams) {
-        echo 'mainRoute';
+        return array(
+            array('fees'=>5),
+            array('fees'=>7)
+        );
         print_r($routParams);
     }
 
-    public function someMethod($routParams) {
+    public function myDemo($routParams) {
+        return array('fees'=>4);
         echo 'someMethod';
         print_r($routParams);
     }
 
     public function anotherMethod($routParams) {
         $myModel = ModelLoader::getModel('DemoModel');
-        return $myModel->testMethod(1, 5).$routParams['variableName'];
+        return $myModel->testMethod(1, 5) . $routParams['variableName'];
     }
 
 }

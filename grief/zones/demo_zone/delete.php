@@ -6,7 +6,7 @@
  * @copyright (c) 2015
  * 
  */
-class Controller extends AbstractGriefDeleteController {
+class DeleteController extends AbstractGriefDeleteController {
 
     public function __construct() {
         $this->setRoutes(array(

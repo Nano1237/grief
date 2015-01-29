@@ -6,13 +6,23 @@
  * @copyright (c) 2015
  * 
  */
-class Controller extends AbstractGriefPutController {
+class PutController extends AbstractGriefPutController {
 
     public function __construct() {
         $this->setRoutes(array(
-            ':variableName/fixName/AnotherFix' => 'someMethod',
+            'user/:userId' => 'updateCertainUser',
+            'demoType/:typeId' => 'myDemo',
             'fixName/:variableName' => 'anotherMethod'
         ));
+    }
+
+#
+
+    public function updateCertainUser($params) {
+        print_r(RequestInput::input());
+        exit;
+        echo 'User: ' . $params['userId'] . ' new Name: ';
+        exit;
     }
 
     /**
@@ -24,9 +34,9 @@ class Controller extends AbstractGriefPutController {
         print_r($routParams);
     }
 
-    public function someMethod($routParams) {
-        echo 'someMethod';
-        print_r($routParams);
+    public function myDemo($routParams) {
+        return array('id' => $routParams['typeId'], 'message' => 'put done!');
+//        print_r($routParams);
     }
 
     public function anotherMethod($routParams) {
