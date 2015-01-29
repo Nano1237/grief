@@ -19,6 +19,7 @@ require_once(CORE_PATH . '/constants.php');
 require_once(CORE_PATH . '/static_classes/Output.php');
 require_once(CORE_PATH . '/static_classes/ModelLoader.php');
 require_once(CORE_PATH . '/static_classes/RequestMethod.php');
+require_once(CORE_PATH . '/static_classes/RequestInput.php');
 
 
 require_once(CORE_PATH . '/GriefControllerParent.php');
