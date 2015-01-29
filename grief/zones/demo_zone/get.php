@@ -8,42 +8,68 @@
  */
 class GetController extends AbstractGriefGetController {
 
+    /**
+     * You define the possible Routes in the contructor.
+     * 
+     */
     public function __construct() {
         $this->setRoutes(array(
-            'user/:userId' => 'GetCertainUser',
+            'user' => 'getAllUsers',
+            'user/:userId' => 'getCertainUser',
             'fixName/:variableName' => 'anotherMethod'
         ));
     }
-    
-    
-    public function GetCertainUser($param){
+
+    /**
+     * mainRoute has to be defined (its abstract).
+     * It is called if no route matches.
+     * @param Array $routeParams
+     */
+    public function mainRoute($routeParams) {
+        echo 'mainRoute';
+        print_r($routeParams);
+        exit;
+    }
+
+    /**
+     * 
+     * A method that demonstrates the GET-Request without variables
+     * @return array
+     */
+    public function getAllUsers() {
+        //You get these data normally from a model
         return array(
-            'name'=>'John Doe',
-            'id'=>$param['userId']
+            array(
+                'id' => 1,
+                'name' => 'John Doe'
+            ),
+            array(
+                'id' => 2,
+                'name' => 'Someone else'
+            )
         );
     }
 
     /**
-     * mainRoute has to be defined (its abstract)
-     * @param Array $routParams
+     * 
+     * A method that demonstrates the a Get-Controller Method with variables
+     * @param type $param
+     * @return type
      */
-    public function mainRoute($routParams) {
+    public function getCertainUser($param) {
         return array(
-            array('fees'=>5),
-            array('fees'=>7)
+            'name' => 'John Doe',
+            'id' => $param['userId']
         );
-        print_r($routParams);
     }
 
-    public function myDemo($routParams) {
-        return array('fees'=>4);
-        echo 'someMethod';
-        print_r($routParams);
-    }
-
-    public function anotherMethod($routParams) {
-        $myModel = ModelLoader::getModel('DemoModel');
-        return $myModel->testMethod(1, 5) . $routParams['variableName'];
+    /**
+     * Just another Method to demonstrate, how you can add multiple routes in the contrcutor
+     * @param Array $routeParams
+     */
+    public function anotherMethod($routeParams) {
+        echo 'anotherMethod';
+        print_r($routeParams);
     }
 
 }
