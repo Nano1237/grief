@@ -29,7 +29,16 @@ class ControllerInitializer {
      * @return \controllerName|boolean
      */
     private function getCurrentController() {
-        $lowerMethod = RequestMethod::getMethodLower();
+        //Check for globaly wrong requests
+        $allow = RequestMethod::requestAllowed();
+        $gc = ConfigLoader::getGlobalConfig();
+        if (!$allow && !$gc['ressource_options_default']) {
+            exit('Request permittet');
+        } elseif (!$allow) {
+            $lowerMethod = 'default';
+        } else {
+            $lowerMethod = RequestMethod::getMethodLower();
+        }
         $controllerFile = CURRENT_ZONE_PATH . '/' . $lowerMethod . '.php';
         if (file_exists($controllerFile)) {
             $controllerName = ucfirst($lowerMethod) . 'Controller';
