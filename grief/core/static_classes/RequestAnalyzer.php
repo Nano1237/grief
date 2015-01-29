@@ -63,9 +63,12 @@ class RequestAnalyzer {
      * Returns the input data (getter for the self::$input property)
      * @return array
      */
-    public static function getInput() {
+    public static function getInput($certainData = false) {
         if (!isset(self::$input)) {
             self::setInput();
+        }
+        if ($certainData && is_string($certainData)) {
+            return self::$input[$certainData];
         }
         return self::$input;
     }
