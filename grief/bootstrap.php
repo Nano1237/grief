@@ -27,10 +27,6 @@ require_once(CORE_PATH . '/GriefControllerParent.php');
 require_once(CORE_PATH . '/interfaces/AbstractGriefModel.php');
 
 
-//Check for globaly wrong requests
-if (!RequestMethod::requestAllowed()) {
-    exit('Request not Allowed!');
-}
 if (RequestMethod::getMethodLower() === 'options') {
     exit('options');
 }
