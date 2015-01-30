@@ -33,34 +33,25 @@ class GetController extends AbstractGriefGetController {
 
     /**
      * 
-     * A method that demonstrates the GET-Request without variables
+     * A method that demonstrates the GET-Request without variables.
+     * It also demonstrates the usage of models
      * @return array
      */
     public function getAllUsers() {
-        //You get these data normally from a model
-        return array(
-            array(
-                'id' => 1,
-                'name' => 'John Doe'
-            ),
-            array(
-                'id' => 2,
-                'name' => 'Someone else'
-            )
-        );
+        return ModelLoader::getModel('UserData')->getMultipleUsers(array(
+                    1, 2, 3
+        ));
     }
 
     /**
      * 
-     * A method that demonstrates the a Get-Controller Method with variables
+     * A method that demonstrates the a Get-Controller Method with variables.
+     * It also demonstrates the usage of models
      * @param type $param
      * @return type
      */
     public function getCertainUser($param) {
-        return array(
-            'name' => 'John Doe',
-            'id' => $param['userId']
-        );
+        return ModelLoader::getModel('UserData')->getUser($param['userId']);
     }
 
     /**
