@@ -8,3 +8,8 @@
  */
 $pathparts = PathAnalyzer::getPathParts();
 define('CURRENT_ZONE_PATH', isset($pathparts[0]) ? (ZONE_PATH . '/' . $pathparts[0]) : false);
+//
+set_error_handler(array(ErrorHandler, 'error_handler'));
+
+$getGlobalConfig = ConfigLoader::getGlobalConfig();
+error_reporting(constant($getGlobalConfig['error_reporting']));
