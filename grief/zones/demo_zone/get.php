@@ -38,6 +38,11 @@ class GetController extends AbstractGriefGetController {
      * @return array
      */
     public function getAllUsers() {
+        //Example of the auth class (you have to change the functionality for yourself)
+        AuthHandler::needsAuth(array(
+            'auth' => true
+        ));
+
         return ModelLoader::getModel('UserData')->getMultipleUsers(array(
                     1, 2, 3
         ));

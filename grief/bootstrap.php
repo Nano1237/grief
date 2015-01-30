@@ -26,6 +26,8 @@ require_once(CORE_PATH . '/GriefControllerParent.php');
 
 //@todo: load all interfaces (order doesnt matters)
 require_once(CORE_PATH . '/interfaces/AbstractGriefModel.php');
+require_once(CORE_PATH . '/interfaces/AbstractGriefAuthHandler.php');
+require_once(CORE_PATH . '/static_classes/AuthHandler.php');
 
 
 if (RequestAnalyzer::getMethodLower() === 'options') {
