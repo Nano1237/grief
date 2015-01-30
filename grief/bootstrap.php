@@ -14,12 +14,12 @@ define('ZONE_PATH', realpath(GRIEF_PATH . '/zones'));
 //load the always used static_classes and constants
 require_once(CORE_PATH . '/static_classes/ConfigLoader.php');
 require_once(CORE_PATH . '/static_classes/PathAnalyzer.php');
+require_once(CORE_PATH . '/static_classes/ErrorHandler.php');
 require_once(CORE_PATH . '/constants.php');
 
 require_once(CORE_PATH . '/static_classes/Output.php');
 require_once(CORE_PATH . '/static_classes/ModelLoader.php');
 require_once(CORE_PATH . '/static_classes/RequestAnalyzer.php');
-//require_once(CORE_PATH . '/static_classes/RequestInput.php');
 
 
 require_once(CORE_PATH . '/GriefControllerParent.php');
