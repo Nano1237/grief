@@ -1,0 +1,58 @@
+HATEOAS
+
+More header data (201=createt, 202=accepted, and so on).
+Options different for different routes. (OPTONS /user/2 -> [header: Allow: GET,PUT])
+Expect header (no changes, just testing) (answer [417 Expectation Failed] or [100 Continue])
+PUT answer maybe [409 Conflict]
+
+[If-Match] header with md5 of original object (for change checking)
+
+[401 Unauthorized WWW-Authenticate: Digest] ->
+
+[
+username="barista joe" 
+realm="starbucks.example.org“ 
+nonce="..." 
+uri="payment/order/1234" 
+qop=auth 
+nc=00000001 
+cnonce="..." 
+reponse="..." 
+opaque="..." 
+]
+
+
+Auth with the header?
+add next,self,previous and so on tags? (for navigation)
+
+
+
+{
+    "content": [ {
+        "price": 499.00,
+        "description": "Apple tablet device",
+        "name": "iPad",
+        "links": [ {
+            "rel": "self",
+            "href": "http://localhost:8080/product/1"
+        } ],
+        "attributes": {
+            "connector": "socket"
+        }
+    }, {
+        "price": 49.00,
+        "description": "Dock for iPhone/iPad",
+        "name": "Dock",
+        "links": [ {
+            "rel": "self",
+            "href": "http://localhost:8080/product/3"
+        } ],
+        "attributes": {
+            "connector": "plug"
+        }
+    } ],
+    "links": [ {
+        "rel": "product.search",
+        "href": "http://localhost:8080/product/search"
+    } ]
+}   
